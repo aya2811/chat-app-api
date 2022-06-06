@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_143030) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_211817) do
   create_table "apps", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "token"
     t.string "name"
+    t.bigint "chat_count"
     t.index ["token"], name: "index_apps_on_token", unique: true
   end
 
@@ -24,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_143030) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "number"
+    t.bigint "message_count"
+    t.index ["app_id", "number"], name: "index_chats_on_app_id_and_number", unique: true
     t.index ["app_id"], name: "index_chats_on_app_id"
   end
 
@@ -33,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_143030) do
     t.datetime "updated_at", null: false
     t.bigint "number"
     t.string "text"
+    t.index ["chat_id", "number"], name: "index_messages_on_chat_id_and_number", unique: true
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 

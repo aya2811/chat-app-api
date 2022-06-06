@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module ChatApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+
+    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes}
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.

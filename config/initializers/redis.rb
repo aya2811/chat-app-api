@@ -1,0 +1,1 @@
+$redis = Redis::Namespace.new("chat-app", :redis => Redis.new)

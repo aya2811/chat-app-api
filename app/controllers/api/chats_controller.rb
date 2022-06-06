@@ -35,7 +35,7 @@ module Api
                 chat = Chat.new()
                 app = App.find_by(:token => token)
                 chat.app_id = app.id
-                chat.number = app.chats.count() + 1
+                chat.number = chat_count(app)
                 if chat.save
                     render json: {status:'SUCCESS', message:'Saved chat', 
                     number: chat.number}, status: :ok
@@ -62,6 +62,21 @@ module Api
             end
         
         end
+
+
+        def chat_count(app)
+            count = $redis.get(app.id.to_s) rescue nil
+            if count.nil?
+                count = app.chats.count
+                app.update(chat_count: count + 1)
+                $redis.set(app.id.to_s, count + 1)
+                $redis.expire(app.id.to_s, 1.hour.to_i)
+            else
+                $redis.set(app.id.to_s, (count.to_i)+1)
+            end
+            return (count.to_i)+1
+        end
+
 
         
     end

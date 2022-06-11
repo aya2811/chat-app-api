@@ -9,31 +9,45 @@ This is a chat-app api application using ruby on rails
     4. run "Docker-compose up"
 
 *   Here is a list of APIs in this app:
-    1. GET 	    localhost:3000/api/apps             "To get all apps"
-    2. GET	    localhost:3000/api/apps/token       "To get an app by token"
-    3. POST     localhost:3000/api/apps             "To create a new app with name"
+    1. "To get all apps":
+    GET 	    localhost:3000/api/apps             
+    2. "To get an app by token":
+    GET	    localhost:3000/api/apps/token       
+    3. "To create a new app with name":
+    POST     localhost:3000/api/apps             
         BODY:
         {
             "name": "app name"
         }
-    4. PUT	    localhost:3000/api/apps/token       "To update an app"
-    5. DELETE 	localhost:3000/api/apps/token       "To delete an app"
+    4. "To update an app":
+    PUT	    localhost:3000/api/apps/token       
+    5. "To delete an app":
+    DELETE 	localhost:3000/api/apps/token       
 
-    6. GET	    localhost:3000/api/apps/token/chats             "To get all chats for a specific app"
-    7. POST     localhost:3000/api/apps/token/chats             "To create new chat for a specific app"
-    8. GET	    localhost:3000/api/apps/token/chats/chat_number "To get a chat for a specific app"
-    9. DELETE	localhost:3000/api/apps/token/chats/chat_number "To delete a chat for a specific app"
+    6. "To get all chats for a specific app":
+    GET	    localhost:3000/api/apps/token/chats             
+    7. "To create new chat for a specific app":
+    POST     localhost:3000/api/apps/token/chats             
+    8. "To get a chat for a specific app":
+    GET	    localhost:3000/api/apps/token/chats/chat_number 
+    9.  "To delete a chat for a specific app":
+    DELETE	localhost:3000/api/apps/token/chats/chat_number
 
-    10. GET	localhost:3000/api/apps/token/chats/chat_number/messages "To get all messages for a specific chat"
-    11. POST 	localhost:3000/api/apps/token/chats/chat_number/messages "To create a message for a specific chat with text"
+    10. "To get all messages for a specific chat":
+    GET	localhost:3000/api/apps/token/chats/chat_number/messages 
+    11. "To create a message for a specific chat with text"
+    POST 	localhost:3000/api/apps/token/chats/chat_number/messages 
         BODY: 
         {
             "text": "message text"
         }
 
-    12. GET	localhost:3000/api/apps/token/chats/chat_number/messages/message_number "To get a message for a specific chat"
-    13. DELETE	localhost:3000/api/apps/token/chats/chat_number/messages/message_number "To delete a message for a specific chat"
-    14. GET	localhost:3000/api/apps/token/chats/chat_number/messages/message_number/search "To search for matching messages in a specific chat"
+    12. "To get a message for a specific chat":
+    GET	localhost:3000/api/apps/token/chats/chat_number/messages/message_number 
+    13. "To delete a message for a specific chat":
+    DELETE	localhost:3000/api/apps/token/chats/chat_number/messages/message_number 
+    14.  "To search for matching messages in a specific chat":
+    GET	localhost:3000/api/apps/token/chats/chat_number/messages/message_number/search
         BODY:
         {
             "search_messages":  

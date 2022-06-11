@@ -19,8 +19,8 @@ gem 'redis-rails'
 gem 'redis-rack-cache'
 
 
-gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
-gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
+gem 'elasticsearch-model', "<7.14"
+gem 'elasticsearch-rails', "<7.14"
 
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
